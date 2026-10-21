@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "parts": [
+    { "part_id": 0, "name": "assembly_preview" },
+    { "part_id": 1, "name": "base" },
+    { "part_id": 2, "name": "lid" },
+    { "part_id": 3, "name": "button_cap" },
+    { "part_id": 10, "name": "esp32" },
+    { "part_id": 11, "name": "oled" },
+    { "part_id": 12, "name": "sd_module" },
+    { "part_id": 13, "name": "buttons" }
+  ]
+}

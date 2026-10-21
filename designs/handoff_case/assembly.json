@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "primary_assembly": "product_assembly",
+  "review_dispatch_id": 90,
+  "assemblies": [
+    {
+      "assembly_id": "product_assembly",
+      "role": "product",
+      "members": [
+        {
+          "assembly_id": "case_joint",
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        },
+        {
+          "assembly_id": "electronics_stack",
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        },
+        {
+          "assembly_id": "controls_group",
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        },
+        {
+          "assembly_id": "preview_documentation",
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        }
+      ]
+    },
+    {
+      "assembly_id": "case_joint",
+      "role": "structural_shell",
+      "members": [
+        {
+          "part_id": 1,
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        },
+        {
+          "part_id": 2,
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        }
+      ]
+    },
+    {
+      "assembly_id": "electronics_stack",
+      "role": "reference_mockups",
+      "members": [
+        {
+          "part_id": 10,
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        },
+        {
+          "part_id": 11,
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        },
+        {
+          "part_id": 12,
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        }
+      ]
+    },
+    {
+      "assembly_id": "controls_group",
+      "role": "controls",
+      "members": [
+        {
+          "part_id": 13,
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        },
+        {
+          "part_id": 3,
+          "transform": { "translate": [22.75, 17.25, 8.7], "rotate": [0, 0, 0] }
+        }
+      ]
+    },
+    {
+      "assembly_id": "preview_documentation",
+      "role": "assembly_preview",
+      "members": [
+        {
+          "part_id": 0,
+          "transform": { "translate": [0, 0, 0], "rotate": [0, 0, 0] }
+        }
+      ]
+    }
+  ],
+  "interfaces": [
+    {
+      "interface_id": "case_joint_interface",
+      "owner_assembly": "case_joint",
+      "type": "structural_mount",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [46.9, 50.45, 45.4], "rotate": [0, 0, 0] },
+      "engages_parts": ["base", "lid"]
+    },
+    {
+      "interface_id": "m3_tower_interface",
+      "owner_assembly": "case_joint",
+      "type": "structural_mount",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [6.5, 6.5, 45.4], "rotate": [0, 0, 0] },
+      "engages_parts": ["base", "lid"]
+    },
+    {
+      "interface_id": "esp32_rail_ledge",
+      "owner_assembly": "electronics_stack",
+      "type": "structural_mount",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [23.75, 57.85, 3.25], "rotate": [0, 0, 0] },
+      "engages_parts": ["base", "esp32"]
+    },
+    {
+      "interface_id": "usb_access_interface",
+      "owner_assembly": "electronics_stack",
+      "type": "port_access",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [27.65, 90.55, 8.9], "rotate": [0, 0, 0] },
+      "engages_parts": ["base", "esp32"]
+    },
+    {
+      "interface_id": "oled_boss_mount",
+      "owner_assembly": "electronics_stack",
+      "type": "structural_mount",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [68.3, 3.25, 18.9], "rotate": [0, 0, 0] },
+      "engages_parts": ["base", "oled"]
+    },
+    {
+      "interface_id": "oled_window_interface",
+      "owner_assembly": "electronics_stack",
+      "type": "display_window",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [68.3, 4.5, 18.9], "rotate": [0, 0, 0] },
+      "engages_parts": ["base", "oled"]
+    },
+    {
+      "interface_id": "sd_pocket_interface",
+      "owner_assembly": "electronics_stack",
+      "type": "structural_mount",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [60.0, 47.5, 6.0], "rotate": [0, 0, 0] },
+      "engages_parts": ["base", "sd_module"]
+    },
+    {
+      "interface_id": "sd_card_slot_interface",
+      "owner_assembly": "electronics_stack",
+      "type": "port_access",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [89.8, 47.15, 9.45], "rotate": [0, 0, 0] },
+      "engages_parts": ["base", "sd_module"]
+    },
+    {
+      "interface_id": "button_well_pair",
+      "owner_assembly": "controls_group",
+      "type": "structural_mount",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [30.9, 17.25, 7.5], "rotate": [0, 0, 0] },
+      "engages_parts": ["base", "buttons"]
+    },
+    {
+      "interface_id": "button_cap_seat_1",
+      "owner_assembly": "controls_group",
+      "type": "mechanical_fit",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [22.75, 17.25, 8.7], "rotate": [0, 0, 0] },
+      "engages_parts": ["button_cap", "buttons", "lid"]
+    },
+    {
+      "interface_id": "button_cap_seat_2",
+      "owner_assembly": "controls_group",
+      "type": "mechanical_fit",
+      "split_policy": "intentionally_terminated",
+      "local_frame": { "translate": [39.05, 17.25, 8.7], "rotate": [0, 0, 0] },
+      "engages_parts": ["button_cap", "buttons", "lid"]
+    }
+  ],
+  "views": [
+    {
+      "name": "front",
+      "projection": "o",
+      "camera": [46.9, 50.45, 24.2, 90, 0, 0, 300],
+      "assembly_view": "product",
+      "assembly_view_id": 1,
+      "show_proxies": false
+    },
+    {
+      "name": "rear",
+      "projection": "o",
+      "camera": [46.9, 50.45, 24.2, 90, 0, 180, 300],
+      "assembly_view": "product",
+      "assembly_view_id": 1,
+      "show_proxies": false
+    },
+    {
+      "name": "left",
+      "projection": "o",
+      "camera": [46.9, 50.45, 24.2, 90, 0, 90, 300],
+      "assembly_view": "product",
+      "assembly_view_id": 1,
+      "show_proxies": false
+    },
+    {
+      "name": "right",
+      "projection": "o",
+      "camera": [46.9, 50.45, 24.2, 90, 0, 270, 300],
+      "assembly_view": "product",
+      "assembly_view_id": 1,
+      "show_proxies": false
+    },
+    {
+      "name": "top",
+      "projection": "o",
+      "camera": [46.9, 50.45, 24.2, 0, 0, 0, 300],
+      "assembly_view": "product",
+      "assembly_view_id": 1,
+      "show_proxies": false
+    },
+    {
+      "name": "isometric",
+      "projection": "p",
+      "camera": [46.9, 50.45, 24.2, 55, 0, 25, 300],
+      "assembly_view": "product_preview",
+      "assembly_view_id": 0,
+      "show_proxies": true
+    },
+    {
+      "name": "exploded",
+      "projection": "p",
+      "camera": [46.9, 50.45, 24.2, 55, 0, 25, 300],
+      "assembly_view": "exploded",
+      "assembly_view_id": 2,
+      "show_proxies": true
+    },
+    {
+      "name": "base_isolation",
+      "projection": "p",
+      "camera": [46.9, 50.45, 24.2, 55, 0, 25, 300],
+      "assembly_view": "base_isolation",
+      "assembly_view_id": 3,
+      "show_proxies": false
+    },
+    {
+      "name": "lid_isolation",
+      "projection": "p",
+      "camera": [46.9, 50.45, 24.2, 55, 0, 25, 300],
+      "assembly_view": "lid_isolation",
+      "assembly_view_id": 4,
+      "show_proxies": false
+    },
+    {
+      "name": "interior_top",
+      "projection": "o",
+      "camera": [46.9, 50.45, 24.2, 0, 0, 0, 300],
+      "assembly_view": "interior",
+      "assembly_view_id": 5,
+      "show_proxies": true
+    },
+    {
+      "name": "interior_iso",
+      "projection": "p",
+      "camera": [46.9, 50.45, 24.2, 55, 0, 25, 300],
+      "assembly_view": "interior",
+      "assembly_view_id": 5,
+      "show_proxies": true
+    }
+  ],
+  "view_sets": {
+    "compact": [
+      "front",
+      "rear",
+      "left",
+      "right",
+      "isometric",
+      "interior_iso",
+      "base_isolation",
+      "lid_isolation"
+    ],
+    "full": [
+      "front",
+      "rear",
+      "left",
+      "right",
+      "top",
+      "isometric",
+      "exploded",
+      "interior_top",
+      "interior_iso",
+      "base_isolation",
+      "lid_isolation"
+    ]
+  },
+  "geometry_exports": []
+}

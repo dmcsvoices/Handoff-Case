@@ -81,7 +81,7 @@ If the agent follows the included playbooks, it should also document what it cha
   - `parts.json` (multi-part designs): authoritative complete-build part IDs and names
   - `assembly.json` (new or modified multi-part designs): authoritative product/subassembly hierarchy, transforms, interfaces, and review views
   - `configs/rev_000N.json`: committed parameter sets
-  - Included designs: `example_box`, `helical`, `yagi`, `yagi_card`, `dtv_yagi`, `winegard_gm6000_logic_backplane`, `gigachad_xavier_void`, `cottage_pi6_plus`, `old_rca_display_baseplate`, `opi_zero_2w_carrier`, `comrade`, `cyberdeck`, `cyberdeck-2`, `micro_cyberdeck_case`, `raspberrypi5_case`, `fan_guard`, `ac_redirectors`, `solarpunk_exhaust`, `solarpunk_seed_tray`, `solarpunk_siphon_filter`
+  - Included designs: `example_box`, `helical`, `yagi`, `yagi_card`, `dtv_yagi`, `winegard_gm6000_logic_backplane`, `gigachad_xavier_void`, `cottage_pi6_plus`, `old_rca_display_baseplate`, `opi_zero_2w_carrier`, `comrade`, `cyberdeck`, `cyberdeck-2`, `micro_cyberdeck_case`, `raspberrypi5_case`, `fan_guard`, `ac_redirectors`, `solarpunk_exhaust`, `solarpunk_seed_tray`, `solarpunk_siphon_filter`, `handoff_case`
   - The `solarpunk_*` designs are at mixed stages (seed_tray: scaffold, placeholder configs; siphon_filter: deferred; solarpunk_exhaust: scaffold, rev_0001 blockout built and audited); their canonical details live in `docs/solarpunk_series.md`
   - `cyberdeck-2`: fully enclosed 5U ten-inch-rack receiver (80 mm deep behind the rack) split into four printable quadrant leaves and joined by eight end-aligned M3 tongue/receiver seam stations with captive washers and hex nuts; thirty front rack holes, two internal equipment shelves, closed rear
 - `output/`
@@ -364,6 +364,8 @@ embedded in one-off design notes:
   - Parametric Orange Pi Zero 2W mounting plate with a `2 mm` base, 4 mounting-hole-aligned studs, M3 through-holes, and underside head recesses for flush screw seating
 - `designs/comrade/`
   - Initial modular robot core base: a `111 x 79 x 7 mm` plate with an `81 x 49 mm` underside-recessed M3 electronics-stack pattern and four top-recessed M3 corner mounts for later modules
+- `designs/handoff_case/`
+  - Governed PLA enclosure (base + M3 screwed lid) for an ESP32-S3 handheld IoT device: drop-in L-ledge board rails + end stop, 1.3" I2C OLED on front-wall bosses with display window, full-size SD module pocket + side card slot, dual USB-C cutouts, 12x12 tactile buttons with printed caps, four M3 tower stations; rev_0001 built, section/shell-verified, and assembly-review-audited from 32 ruler-photo measurements (five provisional dims pending caliper verification; cap-stack coupon source at `designs/handoff_case/probes/`)
 - `designs/lovelace/`
   - Concept-first workspace for a modular mechanical computer using composable 3D-printed logic cubes, synchronized motor-chain expansion, and magnetic cube-to-cube attachment
 - `designs/cyberdeck/`

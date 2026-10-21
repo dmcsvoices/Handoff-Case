@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "design": "handoff_case",
+  "primary_assembly": "product_assembly",
+  "view_set": "full",
+  "generated_at_utc": "2026-10-21T14:00:36.765965+00:00",
+  "config": {
+    "path": "designs/handoff_case/configs/rev_0001.json",
+    "sha256": "a90dc9daed5268dc04f88dbd0cbf8e79785001b8831a00f17a540d66d3cf6887"
+  },
+  "parts_manifest": {
+    "path": "designs/handoff_case/parts.json",
+    "sha256": "5bf4b8f1cfeaeeb88229245044b2e24502a2e31a13f372b2c5621c494a532ab5"
+  },
+  "assembly_contract": {
+    "path": "designs/handoff_case/assembly.json",
+    "sha256": "9cb66da7e99c647fd7b4b825095dfab415880b5348329aef4464cc40f20a7b44"
+  },
+  "source": {
+    "path": "designs/handoff_case/src",
+    "sha256": "45254bf8167f76610927ca767f39c1d598535a9e9478fd3d2147d2cca91d45b6",
+    "main_scad": "designs/handoff_case/src/main.scad"
+  },
+  "printable_build": {
+    "path": "output/handoff_case/build_manifest.json",
+    "directory": "output/handoff_case",
+    "sha256": "5537d4ad9f17f3b62761f44d89eb4a56f361d103f597018c29396d7c53dcdaed",
+    "counts": {
+      "parts": 8,
+      "stl": 8,
+      "png": 136,
+      "artifacts": 144
+    },
+    "stl_artifacts": [
+      {
+        "part_id": 0,
+        "name": "assembly_preview",
+        "path": "assembly_preview_rev_0001.stl",
+        "bytes": 1172821,
+        "sha256": "e3c8d82a7cfc417f42a6dd5d447113aafab015ec0e343c52f39f5e93109c2e3c"
+      },
+      {
+        "part_id": 1,
+        "name": "base",
+        "path": "base_rev_0001.stl",
+        "bytes": 565465,
+        "sha256": "c6e37eee89d2cb844b57a222b6ff59058d874bd4fb8579543fa0e28e94944bf9"
+      },
+      {
+        "part_id": 2,
+        "name": "lid",
+        "path": "lid_rev_0001.stl",
+        "bytes": 340401,
+        "sha256": "4aff4aa52a4fe9a8086bc729fc01eecf2e07929242393dff00a35a1779e8493c"
+      },
+      {
+        "part_id": 3,
+        "name": "button_cap",
+        "path": "button_cap_rev_0001.stl",
+        "bytes": 96642,
+        "sha256": "ab0defde1b91224680ef5e843eec3c4453354d3c1c359cd3f5f42acf1690f0b2"
+      },
+      {
+        "part_id": 10,
+        "name": "esp32",
+        "path": "esp32_rev_0001.stl",
+        "bytes": 8685,
+        "sha256": "54cec5c815f6bb90467e834146dee50a413c078e49b6837bb942aec88a21b6ef"
+      },
+      {
+        "part_id": 11,
+        "name": "oled",
+        "path": "oled_rev_0001.stl",
+        "bytes": 6125,
+        "sha256": "542fc5b7f7a0e08a33ba147c5c9955ad76ff1cede302c5668539cf6bc9179ca5"
+      },
+      {
+        "part_id": 12,
+        "name": "sd_module",
+        "path": "sd_module_rev_0001.stl",
+        "bytes": 6324,
+        "sha256": "3549a1fc8be6fd93482e3da7080ad4319c81ea334749e84fd3c2322882d9df2b"
+      },
+      {
+        "part_id": 13,
+        "name": "buttons",
+        "path": "buttons_rev_0001.stl",
+        "bytes": 44807,
+        "sha256": "1ebea876d3fc2fa740f6a9c23146c7b538e468a7f11ec52743cd54ea2bd5237c"
+      }
+    ]
+  },
+  "git": {
+    "commit": "25ee2c84a4bbbfa3a0880f2bc30b37756ff9dcb1",
+    "dirty": true
+  },
+  "counts": {
+    "png": 11,
+    "stl": 0,
+    "artifacts": 11
+  },
+  "artifacts": [
+    {
+      "path": "product_assembly_base_isolation.png",
+      "bytes": 35916,
+      "sha256": "f5ee6add8ed1775621f7401525d68c9c3e50edffebfc4f915c74d96903bf4fdd"
+    },
+    {
+      "path": "product_assembly_exploded.png",
+      "bytes": 41817,
+      "sha256": "091c660b53d23610f68accb456c80a37052da76e9c4349b7761f08467fc8a928"
+    },
+    {
+      "path": "product_assembly_front.png",
+      "bytes": 16735,
+      "sha256": "316b32421bb57a3a17a469cd37da0f24a767b0a30217457c7ba3adf55f6cf6e4"
+    },
+    {
+      "path": "product_assembly_interior_iso.png",
+      "bytes": 37378,
+      "sha256": "6c82288119d39c939d459b9f83f89d54c34ce9d07460487c37c6f48dddb06d3c"
+    },
+    {
+      "path": "product_assembly_interior_top.png",
+      "bytes": 18880,
+      "sha256": "a2c33439a39494f7927ab7821a5ccd4502abe76e5340c012845a0532cdde687a"
+    },
+    {
+      "path": "product_assembly_isometric.png",
+      "bytes": 41639,
+      "sha256": "3db4e02b550b19f8a01ad37afad0160532610792ecc717d1a7e4e69f70b110ee"
+    },
+    {
+      "path": "product_assembly_left.png",
+      "bytes": 16992,
+      "sha256": "8505027233dbe409b29a937e46f3ad3324f5a48158c8174cbee31c27ba843782"
+    },
+    {
+      "path": "product_assembly_lid_isolation.png",
+      "bytes": 28204,
+      "sha256": "8f45617f51bf6f1b955417019703b76f81d877e178344e82172bb24067fb46fb"
+    },
+    {
+      "path": "product_assembly_rear.png",
+      "bytes": 16917,
+      "sha256": "f8d851fa097e60461057d026cd9533e9e82f01284f83d51438935ce3c3df8fdd"
+    },
+    {
+      "path": "product_assembly_right.png",
+      "bytes": 16004,
+      "sha256": "56e6d57b0a72e2a121127a2e6db1dfff45dab01f9dafb3c7af3b9443d6ff4409"
+    },
+    {
+      "path": "product_assembly_top.png",
+      "bytes": 19828,
+      "sha256": "7003bccf4aad0d1ae2c1392700511c59b2ab3ba62997abb7710d5d2233289b4e"
+    }
+  ]
+}

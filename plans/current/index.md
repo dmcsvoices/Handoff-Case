@@ -2,6 +2,7 @@
 
 Format: `created_at | path | title | summary`
 
+2026-10-20-14-26-10 | plans/current/2026-10-20-14-26-10_handoff-case.md | Handoff Case — ESP32-S3 IoT Device Enclosure | Design a governed OpenSCAD enclosure for an ESP32-S3 DevKitC, microSD reader module + card, 1.3" I2C OLED, and two tactile buttons, from a fresh pipeline scaffold using ruler-photo measurements.
 2026-10-16-22-00-00 | plans/current/2026-10-16-22-00-00_cicero-head-gravity-joints.md | Implement gravity-seated joints for the Cicero head | Resolve a continuous neck owner, add installable head joints, and verify flat-bed outputs.
 2026-10-04-11-35-16 | plans/current/2026-10-04-11-35-16_create-6u-cyberdeck.md | Create 6u_cyberdeck 6U ten-inch-rack case (80 mm deep) | Build a new standalone 6U ten-inch-rack case (254 x 293.9 x 80 mm outer, 222.25 x 266.7 mm clear opening) split into four printable quadrant leaves joined by M3 captive-nut registration seam stations; ring band 13.6 mm independently derived from the M3 station starting profile.
 2026-09-18-12-00-00 | plans/current/2026-09-18-12-00-00_fan-guard.md | Micro Cyberdeck Fan Guard | Add a new single-part fan guard design — a flat plate on 3 mm standoffs with four M3-bore studs — that sits outside the case's 40 mm fan, keeps airflow in through the sides and center, and protects the spinning blades.
