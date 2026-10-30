@@ -105,13 +105,15 @@ module base() {
     // (The window overlaps the boss pilot columns in x by design; the
     // minimum window-to-pilot ligament is the z separation asserted above.)
 
-    // ---- SD pocket / slot guards (3.2 item 4) --------------------------
+    // ---- SD pocket / slot guards (3.2 item 4; rev_0002 microSD) ----------
     assert(sd_pocket_wall_t >= minimum_wall_thickness,
         "SD pocket wall thinner than the house minimum");
     assert(sd_pocket_pad_h >= minimum_wall_thickness,
         "SD pocket raised floor pad thinner than the house minimum");
     assert(sd_pocket_wall_h >= sd_pcb_t + 2.5,
         "SD pocket walls do not capture the module PCB");
+    assert(abs(sd_card_seat - (sd_cage_h - sd_card_t)) <= 0.05,
+        "card seat must keep the card top flush with the cage top");
     // Slot centerline on the cage-mouth/card centerline.
     slot_center_cy = sd_card_cy();
     slot_center_cz = sd_card_z0() + sd_card_t / 2;
@@ -130,13 +132,14 @@ module base() {
         str("card slot bottom to floor ", slot_floor_ligament,
             " < minimum_internal_edge_width ", minimum_internal_edge_width));
 
-    // ---- USB cutout guards (3.2 item 5) --------------------------------
+    // ---- USB cutout guards (3.2 item 5; rev_0002 height derives from the
+    // 4.4 mm shell: cutout_h = shell_h + 2*0.3 = 5.0) ----------------------
     usb_shell_fit_w = usb_cutout_w - (esp32_usb_shell_w + 2 * usb_cutout_clear);
     usb_shell_fit_h = usb_cutout_h - (esp32_usb_shell_h + 2 * usb_cutout_clear);
-    assert(usb_shell_fit_w >= 0,
+    assert(usb_shell_fit_w >= -boolean_epsilon,
         str("USB cutout ", usb_cutout_w, " does not fit shell + 2*",
             usb_cutout_clear));
-    assert(usb_shell_fit_h >= 0,
+    assert(usb_shell_fit_h >= -boolean_epsilon,
         str("USB cutout ", usb_cutout_h, " does not fit shell + 2*",
             usb_cutout_clear));
     // Web between the two cutouts: 12.3 spacing - 10.0 openings = 2.3,
@@ -153,14 +156,41 @@ module base() {
         str("USB cutout bottom to floor ", usb_cutout_floor_ligament,
             " < minimum_internal_edge_width ", minimum_internal_edge_width));
 
-    // ---- Button well guards (3.2 item 6) -------------------------------
-    assert(well_wall_t >= minimum_wall_thickness,
-        "well wall thinner than the house minimum");
-    assert(well_block_h >= floor_t + minimum_wall_thickness,
-        "well block shallower than floor + a wall minimum");
-    well_center_spacing = abs(button_center(1)[0] - button_center(0)[0]);
-    assert(abs(well_center_spacing - button_spacing) <= boolean_epsilon,
-        "well centers do not match the measured button spacing");
+    // ---- Button holding-slot block guards (rev_0002, plan item 3) --------
+    assert(slot_wall_t >= minimum_wall_thickness,
+        "slot block wall thinner than the house minimum");
+    slot_web_w = button_slot_web_x1() - button_slot_web_x0();
+    assert(slot_web_w >= minimum_wall_thickness,
+        str("middle web ", slot_web_w, " < minimum_wall_thickness"));
+    slot_pair_spacing = abs(button_center(1)[0] - button_center(0)[0]);
+    assert(abs(slot_pair_spacing - button_spacing) <= boolean_epsilon,
+        "slot centers do not match the measured spacing (cap-bore datum)");
+    slot_body_fit_w = slot_w() - button_body;
+    slot_body_fit_h = slot_h() - button_h;
+    assert(abs(slot_body_fit_w - 2 * slot_clear) <= boolean_epsilon,
+        "slot width slip differs from slot_clear");
+    assert(slot_body_fit_h >= 0.1,
+        "slot height slip < 0.1 total");
+    // Corner windows admit the kinked terminal blades with solder margin.
+    slot_window_w = slot_tip_clear_half() - slot_window_inner();
+    assert(slot_window_w >= 2.0,
+        str("corner window ", slot_window_w, " < 2.0 (blade + solder)"));
+    slot_mid_rim = (button_center(1)[0] - slot_tip_clear_half())
+        - (button_center(0)[0] + slot_tip_clear_half());
+    assert(slot_mid_rim >= 1.5 - boolean_epsilon,
+        str("between-bays floor rim ", slot_mid_rim,
+            " < the documented 1.5 mm floor"));
+    assert(slot_tip_clear_half() >= button_terminal_span / 2,
+        "window tip clearance inside the measured tip span");
+    // Chamber covers the plan's per-button opening minimum (the shared
+    // cavity plus the open front face is far wider than one bay).
+    chamber_clear_w = button_chamber_x1() - button_chamber_x0();
+    assert(chamber_clear_w >= chamber_opening_w,
+        str("under-chamber ", chamber_clear_w, " < opening ",
+            chamber_opening_w));
+    assert(button_chamber_h() >= chamber_opening_h,
+        str("under-chamber height ", button_chamber_h(), " < opening ",
+            chamber_opening_h));
 
     // ---- Strain post guards (3.2 item 7) -------------------------------
     strain_post_rim = (strain_post_d - strain_post_bore_d) / 2;
@@ -246,11 +276,73 @@ module base() {
                 cube([sd_pocket_wall_t,
                       sd_pocket_y1() - sd_pocket_y0(), sd_pocket_top_z()]);
 
-            // ---- Button wells (3.2 item 6): one block, two cavities ----
-            translate([button_well_block_x0(), button_well_block_y0(), 0])
-                cube([button_well_block_x1() - button_well_block_x0(),
-                      well_wall_t + (button_body + 2 * well_clear),
-                      well_block_h]);
+            // ---- Button holding-slot block (rev_0002, plan item 3) ----
+            // One pair-block: two CLOSED-TOP side-entry slots over a shared
+            // under-chamber. The body rides in the slot on the slot floor
+            // plate (3.0) whose corner windows admit the kinked terminal
+            // tips into the chamber (floor = base floor top); the 3.0
+            // ceiling captures the body vertically (the cap press holds
+            // it). The chamber is open at the front (insertion) and rear
+            // (wire exit to the alley). Outer walls step at the slot
+            // floor: wider at chamber level (outside the 13.8 mm terminal
+            // splay), 3.0 at slot level. The left end tucks under the
+            // front-left M3 tower (merged solids).
+            // Outer side walls (stepped: chamber level then slot level,
+            // embedded 1.0 into the floor plate).
+            translate([button_slot_block_x0(), button_slot_block_y0(), floor_t])
+                cube([slot_outer_wall_t(),
+                      button_slot_block_y1() - button_slot_block_y0(),
+                      chamber_top_z() - floor_t + 1.0]);
+            translate([button_slot_up_x0(), button_slot_block_y0(),
+                       slot_floor_z() - 1.0])
+                cube([slot_wall_t,
+                      button_slot_block_y1() - button_slot_block_y0(),
+                      slot_top_z() - slot_floor_z() + 1.0]);
+            translate([button_slot_block_x1() - slot_outer_wall_t(),
+                       button_slot_block_y0(), floor_t])
+                cube([slot_outer_wall_t(),
+                      button_slot_block_y1() - button_slot_block_y0(),
+                      chamber_top_z() - floor_t + 1.0]);
+            translate([button_slot_up_x1() - slot_wall_t,
+                       button_slot_block_y0(), slot_floor_z() - 1.0])
+                cube([slot_wall_t,
+                      button_slot_block_y1() - button_slot_block_y0(),
+                      slot_top_z() - slot_floor_z() + 1.0]);
+            // Middle web between the slots (slot level up, embedded into
+            // the floor plate; the chamber below stays shared).
+            translate([button_slot_web_x0(), button_slot_block_y0(),
+                       slot_floor_z() - 1.0])
+                cube([button_slot_web_x1() - button_slot_web_x0(),
+                      button_slot_block_y1() - button_slot_block_y0(),
+                      slot_top_z() - slot_floor_z() + 1.0]);
+            // Slot floor plate (chamber ceiling) spanning chamber wall to
+            // chamber wall, embedded 0.5 into the back stop so no coplanar
+            // T-junctions remain; the corner windows are cut below.
+            translate([button_chamber_x0(),
+                       button_slot_block_y0() + slot_wall_t + 0.3,
+                       chamber_top_z()])
+                cube([button_chamber_x1() - button_chamber_x0(),
+                      button_slot_stop_y() + 0.5
+                          - (button_slot_block_y0() + slot_wall_t + 0.3),
+                      slot_floor_z() - chamber_top_z()]);
+            // Slot ceiling slab (closed top), embedded into the front plate
+            // and back stop.
+            translate([button_slot_up_x0(),
+                       button_slot_block_y0() + 2.0, slot_ceiling_z()])
+                cube([button_slot_up_x1() - button_slot_up_x0(),
+                      button_slot_block_y1()
+                          - (button_slot_block_y0() + 2.0),
+                      slot_top_z() - slot_ceiling_z()]);
+            // Front plate (slot level, extends up into the ceiling slab).
+            translate([button_slot_up_x0(), button_slot_block_y0(),
+                       slot_floor_z()])
+                cube([button_slot_up_x1() - button_slot_up_x0(),
+                      slot_wall_t, slot_h() + 1.0]);
+            // Back stop walls (same embedding).
+            translate([button_slot_up_x0(), button_slot_stop_y(),
+                       slot_floor_z()])
+                cube([button_slot_up_x1() - button_slot_up_x0(),
+                      slot_wall_t, slot_h() + 1.0]);
 
             // ---- Strain-relief posts (3.2 item 7) ----
             for (p = [strain_post_oled, strain_post_sd])
@@ -330,22 +422,42 @@ module base() {
                 (esp32_usb_shell_z0() + esp32_usb_shell_z1()) / 2,
                 usb_cutout_w, usb_cutout_h, usb_cutout_r);
 
-        // Button well cavities + wire-exit slots.
+        // Button slot entry mouths through the front plate + 0.3 entry
+        // lead (the bodies ride in the closed-top channels; the kinked
+        // terminals pass below through the open slot floor / chamber).
         for (i = [0, 1])
-            translate([button_center(i)[0] - (button_body + 2 * well_clear) / 2,
-                       button_center(i)[1] - (button_body + 2 * well_clear) / 2,
-                       floor_t - boolean_epsilon])
-                cube([button_body + 2 * well_clear,
-                      button_body + 2 * well_clear,
-                      well_block_h - floor_t + 2 * boolean_epsilon]);
+            translate([button_slot_x0(i),
+                       button_slot_block_y0() - boolean_epsilon,
+                       slot_floor_z() - boolean_epsilon])
+                cube([slot_w(), slot_wall_t + 2 * boolean_epsilon,
+                      slot_h() + 1.0 + 2 * boolean_epsilon]);
         for (i = [0, 1])
-            translate([button_center(i)[0] - well_wire_slot_w / 2,
-                       button_center(i)[1] + (button_body + 2 * well_clear) / 2
-                           - boolean_epsilon,
-                       floor_t - boolean_epsilon])
-                cube([well_wire_slot_w,
-                      well_wire_slot_d + 2 * boolean_epsilon,
-                      well_wire_slot_h + boolean_epsilon]);
+            translate([button_slot_x0(i) - slot_entry_lead,
+                       button_slot_block_y0() - boolean_epsilon,
+                       slot_floor_z() - boolean_epsilon])
+                cube([slot_w() + 2 * slot_entry_lead,
+                      slot_entry_lead + boolean_epsilon,
+                      slot_h() + 1.0 + 2 * boolean_epsilon]);
+        // Corner windows through the slot floor plate admitting the kinked
+        // terminal tips into the chamber. Between-bays rim is 1.5 mm
+        // (< 3.0): mathematically forced by the measured 16.3 pair spacing
+        // vs the 13.8 worst-case tip span (16.3 - 13.8 = 2.5 total gap);
+        // documented deviation on a non-structural retention plate.
+        for (i = [0, 1])
+            for (sx = [-1, 1])
+                for (sy = [-1, 1])
+                    translate([
+                        sx < 0
+                            ? button_center(i)[0] - slot_tip_clear_half()
+                            : button_center(i)[0] + slot_window_inner(),
+                        sy < 0
+                            ? button_slot_block_y0() + slot_wall_t + 0.3
+                            : button_slot_stop_y() - slot_window_d() - 0.3,
+                        chamber_top_z() - boolean_epsilon])
+                        cube([slot_tip_clear_half() - slot_window_inner(),
+                              slot_window_d(),
+                              slot_floor_z() - chamber_top_z()
+                                  + 2 * boolean_epsilon]);
 
         // Strain post zip-tie bores.
         for (p = [strain_post_oled, strain_post_sd])

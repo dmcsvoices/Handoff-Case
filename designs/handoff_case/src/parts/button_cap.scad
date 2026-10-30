@@ -1,16 +1,18 @@
-// button_cap.scad - handoff_case printed button cap (plan item 3.4).
+// button_cap.scad - handoff_case printed button cap (rev_0002 stack).
 // Modeled at its own fabrication origin: stem bottom face at z = 0.
 // Flange on the lid top face; stem slides in the Ø8.3 lid guide bore; the
-// blind Ø4 socket presses the Ø3.9 actuator cap_press below its nominal
-// top at lid closed; the Ø10.5 relief clears the button body top so the
-// stem can reach the press position. Printed x2 (both tactile buttons).
+// blind Ø4 socket sleeves the Ø3.9 actuator plunger; the Ø8.7 relief
+// clears the switch's own Ø8.1 cap so the stem can reach the plunger.
+// Printed x2 (both tactile buttons).
 //
-// Stack arithmetic (defaults.scad functions):
-//   body_top_z      = floor_t + button_h                       (= 10.0)
-//   actuator_top_z  = body_top_z + button_actuator_h           (= 11.5)
-//   stem_bottom_z   = actuator_top_z - cap_press - socket_depth (= 8.7)
-//   relief_depth    = body_top_z - stem_bottom_z               (= 1.3)
-//   stem_len        = (parting_z + lid_t) - stem_bottom_z      (= 43.7)
+// Stack arithmetic (defaults.scad functions, rev_0002):
+//   slot_floor_z    = floor_t + chamber_opening_h          (= 10.0)
+//   body_top_z      = slot_floor_z + button_h              (= 15.4)
+//   switch_cap_top  = body_top_z + button_switch_cap_h     (= 16.9)
+//   actuator_top_z  = slot_floor_z + 9.3 measured          (= 19.3)
+//   stem_bottom_z   = actuator_top_z - press - socket_depth (= 16.5)
+//   relief_depth    = switch_cap_top - stem_bottom + 0.5   (= 0.9)
+//   stem_len        = (parting_z + lid_t) - stem_bottom_z  (= 35.9)
 
 module button_cap() {
     // ---- Fit / governance asserts ------------------------------------
@@ -21,8 +23,13 @@ module button_cap() {
         "cap stem to guide bore clearance < 0.4 mm diametral");
     assert(cap_press <= button_actuator_h / 2,
         "cap press exceeds half the measured actuator height");
-    assert(cap_relief_depth() > 0,
-        "stem bottom above the button body top: relief would be negative");
+    assert(cap_relief_depth() >= 0,
+        "relief depth negative");
+    assert(cap_stem_bottom_z() >= button_body_top_z() - boolean_epsilon,
+        str("stem bottom ", cap_stem_bottom_z(),
+            " fouls the button body top ", button_body_top_z()));
+    assert(cap_socket_depth > cap_relief_depth(),
+        "actuator socket shallower than the switch-cap relief");
     cap_flange_rim = (cap_flange_d - cap_bore_d) / 2;
     assert(cap_flange_rim >= minimum_internal_edge_width,
         str("cap flange rim ", cap_flange_rim,
@@ -40,13 +47,14 @@ module button_cap() {
             translate([0, 0, cap_stem_len()])
                 cylinder(h = cap_flange_t, d = cap_flange_d, $fn = 64);
         }
+        // Relief over the switch cap (only when the stack needs it).
+        if (cap_relief_depth() > 0)
+            translate([0, 0, -boolean_epsilon])
+                cylinder(h = cap_relief_depth() + 2 * boolean_epsilon,
+                         d = cap_relief_d(), $fn = 48);
         // Blind actuator socket from the stem bottom.
         translate([0, 0, -boolean_epsilon])
             cylinder(h = cap_socket_depth + boolean_epsilon,
                      d = cap_socket_d, $fn = 32);
-        // Body relief over the button top face.
-        translate([0, 0, -boolean_epsilon])
-            cylinder(h = cap_relief_depth() + 2 * boolean_epsilon,
-                     d = cap_relief_d, $fn = 48);
     }
 }

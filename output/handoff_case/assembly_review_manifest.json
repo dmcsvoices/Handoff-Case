@@ -3,10 +3,10 @@
   "design": "handoff_case",
   "primary_assembly": "product_assembly",
   "view_set": "full",
-  "generated_at_utc": "2026-10-21T14:00:36.765965+00:00",
+  "generated_at_utc": "2026-10-30T06:09:28.869298+00:00",
   "config": {
-    "path": "designs/handoff_case/configs/rev_0001.json",
-    "sha256": "a90dc9daed5268dc04f88dbd0cbf8e79785001b8831a00f17a540d66d3cf6887"
+    "path": "designs/handoff_case/configs/rev_0002.json",
+    "sha256": "71e44a37fc12fbe60e2d7e033fdcd99d20bcfdaf4d75c70678d2da610488b5e7"
   },
   "parts_manifest": {
     "path": "designs/handoff_case/parts.json",
@@ -14,17 +14,17 @@
   },
   "assembly_contract": {
     "path": "designs/handoff_case/assembly.json",
-    "sha256": "9cb66da7e99c647fd7b4b825095dfab415880b5348329aef4464cc40f20a7b44"
+    "sha256": "91fc6df56e1419134cd0fc5bbf6b621aa5db007d9a5918b7a31b1d5a8b73b3c5"
   },
   "source": {
     "path": "designs/handoff_case/src",
-    "sha256": "45254bf8167f76610927ca767f39c1d598535a9e9478fd3d2147d2cca91d45b6",
+    "sha256": "e02d71939a64ca034f082e89e3a711f9b1b1a570adf554ec15ac0ed893942f3b",
     "main_scad": "designs/handoff_case/src/main.scad"
   },
   "printable_build": {
     "path": "output/handoff_case/build_manifest.json",
     "directory": "output/handoff_case",
-    "sha256": "5537d4ad9f17f3b62761f44d89eb4a56f361d103f597018c29396d7c53dcdaed",
+    "sha256": "8fb6eb4f27dae667da33756dc64045d42f6edacfafb2ad792afebca87968ea5d",
     "counts": {
       "parts": 8,
       "stl": 8,
@@ -35,63 +35,63 @@
       {
         "part_id": 0,
         "name": "assembly_preview",
-        "path": "assembly_preview_rev_0001.stl",
-        "bytes": 1172821,
-        "sha256": "e3c8d82a7cfc417f42a6dd5d447113aafab015ec0e343c52f39f5e93109c2e3c"
+        "path": "assembly_preview_rev_0002.stl",
+        "bytes": 1302274,
+        "sha256": "274de434e2c3aee39daa4f7680258ed0d78fc932c8d88a73a45b261e6c5a440b"
       },
       {
         "part_id": 1,
         "name": "base",
-        "path": "base_rev_0001.stl",
-        "bytes": 565465,
-        "sha256": "c6e37eee89d2cb844b57a222b6ff59058d874bd4fb8579543fa0e28e94944bf9"
+        "path": "base_rev_0002.stl",
+        "bytes": 624866,
+        "sha256": "02664fa50c7758209958190eabe53bdcba67b8f3eaaa8af0634802ba3c7638cb"
       },
       {
         "part_id": 2,
         "name": "lid",
-        "path": "lid_rev_0001.stl",
+        "path": "lid_rev_0002.stl",
         "bytes": 340401,
-        "sha256": "4aff4aa52a4fe9a8086bc729fc01eecf2e07929242393dff00a35a1779e8493c"
+        "sha256": "7812456141203de7d7d5107b1ee9d3f093d8d3e5fff379e0935887315e3c3ea1"
       },
       {
         "part_id": 3,
         "name": "button_cap",
-        "path": "button_cap_rev_0001.stl",
+        "path": "button_cap_rev_0002.stl",
         "bytes": 96642,
-        "sha256": "ab0defde1b91224680ef5e843eec3c4453354d3c1c359cd3f5f42acf1690f0b2"
+        "sha256": "d15d9d0e1e1c581e816a5366d727aa71e57e05f6be2f53b6a702ca90103b0908"
       },
       {
         "part_id": 10,
         "name": "esp32",
-        "path": "esp32_rev_0001.stl",
-        "bytes": 8685,
-        "sha256": "54cec5c815f6bb90467e834146dee50a413c078e49b6837bb942aec88a21b6ef"
+        "path": "esp32_rev_0002.stl",
+        "bytes": 8971,
+        "sha256": "387d1645c8089a8941b237d17d5a527a5948247b11bfd00c633a4203ed4d67b3"
       },
       {
         "part_id": 11,
         "name": "oled",
-        "path": "oled_rev_0001.stl",
-        "bytes": 6125,
-        "sha256": "542fc5b7f7a0e08a33ba147c5c9955ad76ff1cede302c5668539cf6bc9179ca5"
+        "path": "oled_rev_0002.stl",
+        "bytes": 9019,
+        "sha256": "6ce4b1adb01c612cbf040eba686684ef0f53dd98a4d5196356964d9be6eaa683"
       },
       {
         "part_id": 12,
         "name": "sd_module",
-        "path": "sd_module_rev_0001.stl",
-        "bytes": 6324,
-        "sha256": "3549a1fc8be6fd93482e3da7080ad4319c81ea334749e84fd3c2322882d9df2b"
+        "path": "sd_module_rev_0002.stl",
+        "bytes": 6282,
+        "sha256": "fe472eb9be8fb8e15c9453bf33671346c4c4eda0c7f49d5f66f71d179cc12811"
       },
       {
         "part_id": 13,
         "name": "buttons",
-        "path": "buttons_rev_0001.stl",
-        "bytes": 44807,
-        "sha256": "1ebea876d3fc2fa740f6a9c23146c7b538e468a7f11ec52743cd54ea2bd5237c"
+        "path": "buttons_rev_0002.stl",
+        "bytes": 106765,
+        "sha256": "9852dc093e88f73fdc0e7c2cf23efdd08dd83822a13f4452c21b26629ee252e3"
       }
     ]
   },
   "git": {
-    "commit": "25ee2c84a4bbbfa3a0880f2bc30b37756ff9dcb1",
+    "commit": "36db90073615e40fe707cd268ad0d07031f3f5f4",
     "dirty": true
   },
   "counts": {
@@ -102,13 +102,13 @@
   "artifacts": [
     {
       "path": "product_assembly_base_isolation.png",
-      "bytes": 35916,
-      "sha256": "f5ee6add8ed1775621f7401525d68c9c3e50edffebfc4f915c74d96903bf4fdd"
+      "bytes": 35733,
+      "sha256": "1ed0c799c9041a5ab15c61cd9403149d832f9d40e1eebadbbd04686ac343952f"
     },
     {
       "path": "product_assembly_exploded.png",
-      "bytes": 41817,
-      "sha256": "091c660b53d23610f68accb456c80a37052da76e9c4349b7761f08467fc8a928"
+      "bytes": 41668,
+      "sha256": "d79d124699dce04372f78589a16f72fe5bd9d722ba2008f6185ab7563aeb34c6"
     },
     {
       "path": "product_assembly_front.png",
@@ -117,23 +117,23 @@
     },
     {
       "path": "product_assembly_interior_iso.png",
-      "bytes": 37378,
-      "sha256": "6c82288119d39c939d459b9f83f89d54c34ce9d07460487c37c6f48dddb06d3c"
+      "bytes": 37532,
+      "sha256": "76b9e1e41051e66c2665cdb69c715a9b5e40de6d31e68e8168e6e604722533d5"
     },
     {
       "path": "product_assembly_interior_top.png",
-      "bytes": 18880,
-      "sha256": "a2c33439a39494f7927ab7821a5ccd4502abe76e5340c012845a0532cdde687a"
+      "bytes": 18498,
+      "sha256": "4764fe06dd3a7032a3dbcc196ca2166207f4265bfe9fae44d7e6063b870e542b"
     },
     {
       "path": "product_assembly_isometric.png",
-      "bytes": 41639,
-      "sha256": "3db4e02b550b19f8a01ad37afad0160532610792ecc717d1a7e4e69f70b110ee"
+      "bytes": 41821,
+      "sha256": "96fcb00f1c7f22e73e28171f16dc580476c520856cee2c44eee948ee6badaee1"
     },
     {
       "path": "product_assembly_left.png",
-      "bytes": 16992,
-      "sha256": "8505027233dbe409b29a937e46f3ad3324f5a48158c8174cbee31c27ba843782"
+      "bytes": 16940,
+      "sha256": "254689228f7eec3212cf1c7c9d929e9b7b2b16586e96391d599ee9bd879330cb"
     },
     {
       "path": "product_assembly_lid_isolation.png",
@@ -142,8 +142,8 @@
     },
     {
       "path": "product_assembly_rear.png",
-      "bytes": 16917,
-      "sha256": "f8d851fa097e60461057d026cd9533e9e82f01284f83d51438935ce3c3df8fdd"
+      "bytes": 16735,
+      "sha256": "316b32421bb57a3a17a469cd37da0f24a767b0a30217457c7ba3adf55f6cf6e4"
     },
     {
       "path": "product_assembly_right.png",
@@ -152,8 +152,8 @@
     },
     {
       "path": "product_assembly_top.png",
-      "bytes": 19828,
-      "sha256": "7003bccf4aad0d1ae2c1392700511c59b2ab3ba62997abb7710d5d2233289b4e"
+      "bytes": 18798,
+      "sha256": "211b606256236a354eff83844aabbda6fa606004a4762380c54d9d6663f56b88"
     }
   ]
 }

@@ -61,18 +61,59 @@ provisional — verify before final print.
 | Button total height | ~7 (7-9 class) | P | No usable scaled side view — verify with calipers; caps and pockets are parameterized around it. |
 | Wire routing | Dupont loops, bend radius >= ~15 | M | Photos 134055205, 134240331 — internal wire alleys sized accordingly. |
 
-### Known-unverified (need caliper or one straight-on side photo)
+### 2026-10-29 caliper feedback batch (supersedes photo-derived values; rev_0002)
 
-1. ESP32 above-board stack height (headers + Dupont tops).
-2. Button total height and actuator travel.
-3. SD stack height (PCB + cage + card top).
-4. OLED mounting-hole spans (confirm +/-0.6 with calipers) and hole diameter fit
-   (dia 2.9 measured — decide screw vs boss pin in detail phase).
-5. ESP32 board thickness (1.6 assumed) and underside pin-tip protrusion (rail
-   groove depth depends on it; ~1.5 assumed).
+Source: `updated_measurements/` (73 photos: digital-caliper component
+measurements + printed rev_0001 base/cap fit checks). Printed revision:
+rev_0001 STLs (commit 7d280e3), pink PLA; printer/profile unrecorded —
+feedback tied to unrecorded print conditions (evidence limit). Competing
+causes: the 2026-10-20 ruler-photo reads (English/inch rule ambiguity, 2x
+error class) vs the 2026-10-29 caliper LCD transcriptions (authoritative);
+the SD module identity CHANGED between batches (full-size module + card
+in the 2026-10-20 photos vs microSD module + card photographed 2026-10-29)
+— rev_0002 designs for the measured microSD module; reverting is a
+parameter change if the full-size module returns.
 
-These are config parameters in `configs/rev_0001.json`; update through a new
-revision when measured (measurement playbook step 9).
+| Parameter | rev_0001 (superseded) | rev_0002 (measured) | Class |
+|---|---|---|---|
+| esp32_board_len | 60.7 | 57.1 (+end play seen in printed rails) | measured (caliper LCD) |
+| esp32_board_w | 28.3 | 28.15 | measured |
+| esp32_header_w (board + side headers) | 31.5 | 31.35 | derived (unchanged 1.6/side overhang) |
+| esp32 above-board pin height | ~13 stack (P) | 11.4 pin height; stack 16.5 provisional-derived | measured / P |
+| esp32_usb_shell_h | 3.2 (standard) | 4.4 | measured |
+| oled rigid PCB | 35.6 x 34.4 | 31.0 x 34.25 (+ ~4.4 FPC tail beyond +X edge) | measured |
+| oled glass outline | 33.0 x 24.6 | 33.5 x 24.6 outline; visible area 33.5 x 15.4 | measured |
+| SD module identity | full-size reader 33.3 x 28.3 | **microSD reader 28.2 x 20.0** | measured; batch change |
+| sd cage | 29.2 x 21-25 | 14.9 x 11.4 (~2.9 high) | measured, medium |
+| sd card | full-size 32 x 24 x 2.1 | microSD 15.0 x 11.1 x ~1.0 | measured (card labelled microSD) |
+| sd card exposed | ~13 | ~11.3 (inserted 3.7) | measured, medium |
+| button body | 12.1 x 12.1 x 7.0 (P) | 12.1 sq x 5.4 | measured |
+| button cap dia | 7.9-8.0 | 8.1 | measured |
+| button actuator | 3.9 dia x ~1.5 (P) | 3.9 dia, top 9.3 above mounting floor | measured |
+| button terminals | unmodeled | 4 kinked corner blades ~1.1 x 0.4, tips splay to ~13.4-13.8 span, ~3.5-5.5 below body | measured, medium |
+| cap stem printed | 7.8 design | 7.9 printed (fit verified) | print verified |
+| USB cutouts printed | 10.0 x 4.5 | ~11 x 4.3 observed | observed; design kept (10.0 x 5.0 derives from the 4.4 shell) |
+
+Superseded values stay visible above for provenance; `configs/rev_0001.json`
+is unchanged (immutable revision). OLED mounting-hole spans were NOT
+re-measured this batch — the rev_0001 boss pattern (30.0 x 29.8) is kept
+and still fits inside the rigid 34.25 x 31.0; flag for a future caliper
+pass.
+
+### Known-unverified after the 2026-10-29 batch
+
+1. Terminal projection below the body is medium-confidence (3.5-5.5) —
+   the under-chamber height 7 covers the range; verify at physical assembly.
+2. Button switch-cap height above the body (~1.5 assumed) — drives the
+   printed cap relief; verify at assembly.
+3. OLED mounting-hole spans (+/-0.6) and FPC tail width (~10 assumed).
+4. esp32_stack_h 16.5 is provisional-derived (11.4 pins + Dupont margin).
+5. Printer conditions for the rev_0001 feedback print are unrecorded —
+   the cap-stem fit verdict ties to that unrecorded profile.
+6. Slicer layer-path review still outstanding for all revisions.
+
+These are config parameters in `configs/rev_0002.json`; update through a
+new revision when measured (measurement playbook step 9).
 
 ## rev_0001 blockout envelope (item 3.1, derived 2026-10-20)
 
@@ -216,6 +257,16 @@ known-unverified (#2); if the switches read constantly closed, drop
 - Button wells / OLED / front-right tower moved right vs blockout: the
   corner towers + wells + OLED module did not fit the blockout x-positions;
   the envelope itself is unchanged.
+- rev_0002 slot-floor between-bays rim 1.5 (< 3.0): mathematically forced
+  by the measured 16.3 mm pair spacing vs the 13.8 mm worst-case terminal
+  tip span (16.3 - 13.8 = 2.5 total for two windows); the floor plate is a
+  non-structural retention plate and the window rims elsewhere are >= 3.0.
+  **User-approved exception 2026-10-30** (same class as the rev_0001 land/
+  blade width exceptions: a location-limit strip, not a load section).
+- rev_0002 anti-lift blade X pinned at rev_0001 (lid geometry-identical
+  constraint): the measured board is 0.15 mm narrower, so the pinned right
+  blade overlaps the new edge strip by 1.45 of its 1.6 width and clears
+  the header pins by >= 0.85 (asserted).
 - Toolchain note (not a geometry deviation): OpenSCAD 2021.01 preview
   hides axis-aligned through-holes (OpenCSG occlusion artifact) and CGAL
   degenerates single rounded-rect cut prisms wider than ~27 mm. The window
@@ -232,7 +283,7 @@ Source revision/config: rev_0001 (mutable, `configs/rev_0001.json`).
 Method: governed temporary section probes (per the sections/probes
 playbook) rendered to transient `section_<n>.png` files (removed before
 the final audits per artifact governance; measurements recorded below),
-with probe source preserved at `designs/handoff_case/probes/section_probes.scad`;
+with probe source preserved at `designs/handoff_case/src/probes/section_probes.scad`;
 plus independent line-section measurements of the installed STLs (pure-Python
 mesh checks reusing `scripts/verify_raspberrypi5_case.py` machinery - no
 new dependencies). Summarised below.
@@ -327,7 +378,7 @@ status). `P` = driven by a provisional/unverified measurement.
 
 Highest-risk mating profile: the cap/bore/actuator press stack (provisional
 button height + 0.3 mm press - a constant 0.3 preload may keep the tactile
-switches closed). Coupon: `designs/handoff_case/probes/cap_stack_coupon.scad` (transient,
+switches closed). Coupon: `designs/handoff_case/src/probes/cap_stack_coupon.scad` (transient,
 removed before the final audits) replicating the full stack at press
 0.05 / 0.3 / 0.5 with production-derived plate, bore, stem, socket,
 actuator and body dimensions; section render reviewed
@@ -338,7 +389,7 @@ disposition:** the governed flat output audit rejects any extra file, and
 adding the coupon to parts.json would pollute the product decomposition
 with a non-product part, so the coupon artifacts were transient (removed
 before the final audits) and the source lives outside the hash-audited
-`src/` tree at `designs/handoff_case/probes/cap_stack_coupon.scad`
+`src/` tree at `designs/handoff_case/src/probes/cap_stack_coupon.scad`
 (preserved; render with OpenSCAD to regenerate the STL before printing).
 Physical print + measurement: pending - all `unverified` rows above gate
 fabrication readiness.
@@ -356,6 +407,104 @@ at intended faces. Note: OpenSCAD reports the combined assembly preview
 export as non-2-manifold (expected for the union preview; printable leaf
 STLs are each a single verified shell per 4.1). Slicer layer-path review:
 not performed - unverified, required before final print.
+
+## rev_0002 changes (2026-10-29 feedback plan)
+
+Envelope: PINNED at the rev_0001 interior (87.8 x 94.9, outer 93.8 x
+100.9) so the lid part stays geometry-identical (verified by STL vertex
+hash). The shorter board (57.1) and narrower microSD module free space as
+end play and extra wire alley instead of shrinking the case:
+`usb_gap` derives to 5.6 (2.0 minimum + 3.6 end play at the USB end);
+`band_gap` derives to ~10.8 (extra alley beside the microSD pocket). The
+OLED got 0.15 shorter, absorbed by `lid_clearance` 8.0 -> 8.15 so the
+parting plane and the whole lid stay fixed.
+
+Button retention replaced (user workflow: solder wires to the switch
+terminals FIRST, then slide the pre-wired switch in from the front; the
+cap retains it):
+
+- Per button a CLOSED-TOP side-entry slot: 12.4 wide x 5.6 tall x 14.0
+  deep (0.15/side slip on the 12.1 body), 0.3 entry lead at the mouth.
+  The slot floor plate (3.0) carries the body; its corner windows
+  (3.2 x 3.0 per corner, covering the 13.8 mm tip splay) admit the kinked
+  terminals, solder joints, and wires into the shared under-chamber
+  (floor = base floor top, height 7.0 >= 5.5 drop, open toward the wire
+  alley at the rear). The 3.0 ceiling captures the body vertically.
+- The body rests at slot floor z 13.0; back stop seats the actuator under
+  the UNCHANGED lid cap bores (centers 22.75 / 39.05 x 17.25; the block
+  tucks 2.0 under the front-left M3 tower as merged solids).
+- Assembly sequence: solder wires to the terminals -> slide the switch in
+  through the front mouth until the back stop -> the printed cap (through
+  the lid bore) sleeves the plunger and retains the switch. Until the cap
+  is fitted the switch is not vertically captured — keep the case level
+  or let the wires hold it.
+
+Cap stack (rev_0002): slot_floor 13.0; body top 18.4; switch cap (dia
+8.1 x ~1.5) top 19.9; actuator top 22.3 (= 9.3 above the slot floor);
+stem_bottom = 22.3 - 0.3 - 2.5 = 19.5; relief over the switch cap 0.9
+deep (dia 8.7); socket dia 4.0 x 2.5; stem length = 52.4 - 19.5 = 32.9.
+
+### rev_0002 verification (2026-10-29)
+
+Source revision/config: rev_0002, `configs/rev_0002.json` (published).
+Method: same governed approach as the rev_0001 review - section probes
+(`src/probes/section_probes.scad`, transient renders), independent STL
+line-section measurements, pure-Python mesh topology, artifact-bound
+assembly review. rev_0001 records above remain the history for unchanged
+features; only the changed features are re-evidenced here.
+
+| Feature | Evidence | Measured (STL line sections) | Result |
+|---|---|---|---|
+| Holding-slot block | probe 10 section | floor plate z 10-13 (3.0), closed-top channels z 13-18.6 (5.6), ceiling 18.6-21.6 (3.0), chamber z 3-10 (7.0), stepped outer walls, back stop y 23.3 | PASS |
+| Under-chamber + windows | probes 10/11 + sections | chamber 7.0 >= 5.5 terminal drop; corner-window column void through the plate; window rims: between-bays 1.5 (documented deviation), bearing strips 3.0 | PASS (with deviation) |
+| Back stop / datum | section + asserts | button centres 22.75 / 39.05 x 17.25 (unchanged; `slot_pair_spacing` assert); actuator under lid bores | PASS |
+| microSD pocket + slot | probe 11 | slot z 8.75-11.25 (12.5 x 2.5 centred 10.0), floor ligament 5.75, pocket 0.3/side, seat flush (`seat = cage_h - card_t` assert) | PASS |
+| USB cutout height | section | cutouts z 7.0-12.0 (5.0 = 4.4 shell + 2x0.3), floor ligament 4.0, web 2.3 (approved exception) | PASS |
+| End stop (shorter board) | probe 2 | bar top z 8.1 = board top; notches around both 4.4-tall shells; web 3.0 | PASS |
+| Rails (shorter/narrower board) | probe 1 | rail top z 6.5 (floor+3.5), tip clearance 2.0; envelope end play at the USB end (`usb_gap` derives 5.6) | PASS |
+| Cap stack | coupon + sections | socket 2.5 deep over plunger; stem bottom 19.5 (actuator top 22.3 - 0.3 press - 2.5); stem length 32.9; switch-cap relief 0.9 x dia 8.7; stem dia 7.8 in dia 8.3 bore | PASS |
+| Lid identity | STL vertex hash | lid_rev_0002 vertex-hash == lid_rev_0001 (geometry-identical); anti-lift blade X pinned (overlaps the 0.15 narrower board edge by 1.45/1.6, pins clear >= 0.85, asserted) | PASS |
+
+Shell audit (installed rev_0002 STLs): base 1 shell (3996 tris), lid 1
+(2108), button_cap 1 (572), all four mockups 1 each; buttons mockup 2
+shells by design (two physically separate switches). No unexpected
+disconnected shells. OpenSCAD's combined assembly-preview export reports
+non-2-manifold as expected for the union preview (throwntogether backfaces
+are a render artifact, not geometry; the per-part STLs are each single
+verified shells and the review STL export carries the full geometry,
+18270 vertices).
+
+Coupon: `src/probes/cap_stack_coupon.scad` updated to the rev_0002 stack
+(actuator top 9.3 above the slot floor; three press variants 0.05 / 0.3 /
+0.5); sanity render inspected (three stations assemble with the socket
+engaging the plunger). Regenerate transiently from the source for the
+physical print; coupon STL/PNG are not part of the governed flat output.
+
+Complete gate: build manifest audit PASS (8 STL + 136 PNG + manifest);
+contract PASS (5 assemblies, 8 parts, 11 interfaces, 11 views); unified
+output audit PASS (8 STL + 147 PNG + 2 manifests, 157 files, flat);
+artifact-bound assembly review rendered and audited for rev_0002
+(`assembly_review_manifest.json` binds the exact current
+`build_manifest.json` hash and every authoritative STL hash).
+
+Revision snapshot: `revisions/handoff_case/rev_0002/` (146 artifacts +
+manifest + params.json), config/parts/params hashes match the audited
+output build and all 8 STL vertex-hashes are geometry-identical. Caveat
+recorded per the playbook: the snapshot was built minutes before a
+geometry-neutral source edit (mockup placement hoisting - the same OpenSCAD
+deferred-thunk robustness fix as the lid blades), so its manifest's source
+hash predates the final tree and its `--audit-only` flags the drift; the
+output build (final tree) is the fully audited reference. Re-publication
+as a new number for a source-text-only change was judged worse; flag for
+the next framework pass (either snapshot the source in the revision dir or
+allow re-publication while uncommitted).
+
+Slicer layer-path review: not performed - unverified, required before
+final print.
+
+Result: **passed at the construction/evidence level**; physical fit of the
+terminal drop, switch-cap height, and cap press remains unverified (see
+known-unverified).
 
 ## Part classification (parts.json dispatch ids)
 

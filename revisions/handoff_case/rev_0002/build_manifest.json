@@ -1,0 +1,796 @@
+{
+  "schema_version": 1,
+  "build_scope": "complete",
+  "design": "handoff_case",
+  "revision": "rev_0002",
+  "destination": "revision",
+  "generated_at_utc": "2026-10-30T05:26:34.223508+00:00",
+  "config": {
+    "path": "designs/handoff_case/configs/rev_0002.json",
+    "sha256": "71e44a37fc12fbe60e2d7e033fdcd99d20bcfdaf4d75c70678d2da610488b5e7"
+  },
+  "parts_manifest": {
+    "path": "designs/handoff_case/parts.json",
+    "sha256": "5bf4b8f1cfeaeeb88229245044b2e24502a2e31a13f372b2c5621c494a532ab5"
+  },
+  "source": {
+    "path": "designs/handoff_case/src",
+    "sha256": "103224978cf6e4c4eb7d46fb43a9ad132e8800b93f72e19fcd08f94abd9e4f8f",
+    "main_scad": "designs/handoff_case/src/main.scad"
+  },
+  "git": {
+    "commit": "36db90073615e40fe707cd268ad0d07031f3f5f4",
+    "dirty": true
+  },
+  "openscad": "/opt/homebrew/bin/openscad",
+  "counts": {
+    "parts": 8,
+    "stl": 8,
+    "png": 136,
+    "artifacts": 144
+  },
+  "parts": [
+    {
+      "part_id": 0,
+      "name": "assembly_preview",
+      "output_name": "assembly_preview_rev_0002"
+    },
+    {
+      "part_id": 1,
+      "name": "base",
+      "output_name": "base_rev_0002"
+    },
+    {
+      "part_id": 2,
+      "name": "lid",
+      "output_name": "lid_rev_0002"
+    },
+    {
+      "part_id": 3,
+      "name": "button_cap",
+      "output_name": "button_cap_rev_0002"
+    },
+    {
+      "part_id": 10,
+      "name": "esp32",
+      "output_name": "esp32_rev_0002"
+    },
+    {
+      "part_id": 11,
+      "name": "oled",
+      "output_name": "oled_rev_0002"
+    },
+    {
+      "part_id": 12,
+      "name": "sd_module",
+      "output_name": "sd_module_rev_0002"
+    },
+    {
+      "part_id": 13,
+      "name": "buttons",
+      "output_name": "buttons_rev_0002"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "assembly_preview_rev_0002.png",
+      "bytes": 46396,
+      "sha256": "d599e2991ec436430de36f52fab1eddb5f5a49a5d22608d06ba7bf55ff9c2c10"
+    },
+    {
+      "path": "assembly_preview_rev_0002.stl",
+      "bytes": 1302274,
+      "sha256": "7c794f3d51ebe78075ec45f79013439461555b5a26bd7859aedad2005531e6b3"
+    },
+    {
+      "path": "assembly_preview_rev_0002_inspect_inside_bottom_iso.png",
+      "bytes": 26622,
+      "sha256": "1200c76e066ebbb2aaf5ca6a777ffaa6bfbe844b35faeace72e3688549abe424"
+    },
+    {
+      "path": "assembly_preview_rev_0002_inspect_inside_bottom_ortho.png",
+      "bytes": 17559,
+      "sha256": "01bc831fa6a1b3b3dc69fcc567beb222c6d2c9f96b47d58e416614ddb9581432"
+    },
+    {
+      "path": "assembly_preview_rev_0002_iso_back_left.png",
+      "bytes": 42045,
+      "sha256": "3420083253e6183a4d677867be42673b08bdff4ae2180c356f3958ff4f18f8dc"
+    },
+    {
+      "path": "assembly_preview_rev_0002_iso_back_right.png",
+      "bytes": 40299,
+      "sha256": "dd7d98a4ac6ebb133aa15a6405717629a44fdea884f9d542e209af3fef10932b"
+    },
+    {
+      "path": "assembly_preview_rev_0002_iso_bottom_back_left.png",
+      "bytes": 29692,
+      "sha256": "d1925e8361ee02a6ed5c756811cc355fa6c8cac41340be82c8970bb3ab656dca"
+    },
+    {
+      "path": "assembly_preview_rev_0002_iso_bottom_back_right.png",
+      "bytes": 30766,
+      "sha256": "93b0ceb743521fa8c2ce106ea0fb2ae61a12c982e78aa4383f38bb0b19915eab"
+    },
+    {
+      "path": "assembly_preview_rev_0002_iso_bottom_front_left.png",
+      "bytes": 31508,
+      "sha256": "2191ac026ca25d2702b20ab7deab713abcae9030ad549ec4954bf3dad8e7bf9a"
+    },
+    {
+      "path": "assembly_preview_rev_0002_iso_bottom_front_right.png",
+      "bytes": 30915,
+      "sha256": "4b1311de188d2a4833d46664799d98cae152ccb96e6f0e3e54b69a6c237dd378"
+    },
+    {
+      "path": "assembly_preview_rev_0002_iso_front_left.png",
+      "bytes": 42468,
+      "sha256": "4c5350e0bab87648ce0935d83d994b9fce0e31b5493c6dadf89c3549e6ddab42"
+    },
+    {
+      "path": "assembly_preview_rev_0002_iso_front_right.png",
+      "bytes": 46396,
+      "sha256": "d599e2991ec436430de36f52fab1eddb5f5a49a5d22608d06ba7bf55ff9c2c10"
+    },
+    {
+      "path": "assembly_preview_rev_0002_ortho_back.png",
+      "bytes": 17440,
+      "sha256": "430d78d6b0fde7459446c2a97b0e6f95763e05775bfd2f099e0ded37dfb05789"
+    },
+    {
+      "path": "assembly_preview_rev_0002_ortho_bottom.png",
+      "bytes": 17559,
+      "sha256": "01bc831fa6a1b3b3dc69fcc567beb222c6d2c9f96b47d58e416614ddb9581432"
+    },
+    {
+      "path": "assembly_preview_rev_0002_ortho_front.png",
+      "bytes": 17680,
+      "sha256": "5bd8a719d1624db41e9fafd6f56c9d05521a9e04aec71ddc487cfae1210ee2a7"
+    },
+    {
+      "path": "assembly_preview_rev_0002_ortho_left.png",
+      "bytes": 17734,
+      "sha256": "cde2335c3a3241657640584d5c814722b7415287d76844a7491ce7e0a63f9ff8"
+    },
+    {
+      "path": "assembly_preview_rev_0002_ortho_right.png",
+      "bytes": 17898,
+      "sha256": "11fedad2dc927e6e68de0c83216ee166367a6b35f8fc2423fb2a874cf3fde51d"
+    },
+    {
+      "path": "assembly_preview_rev_0002_ortho_top.png",
+      "bytes": 19935,
+      "sha256": "813b23c56944968ac1653bbd5df6668bd5c1b84d664c132cdd680a8820c950ae"
+    },
+    {
+      "path": "base_rev_0002.png",
+      "bytes": 35202,
+      "sha256": "c862d0ac26bf40ed16f51a8680ef083350d71a9ae7d37826d912af1c0606189f"
+    },
+    {
+      "path": "base_rev_0002.stl",
+      "bytes": 624866,
+      "sha256": "da75056b6f831218633be86a994d0dc89a0a3a9b4c69fd702e19efcd386abeda"
+    },
+    {
+      "path": "base_rev_0002_inspect_inside_bottom_iso.png",
+      "bytes": 24362,
+      "sha256": "62cf2fcaec8031266b892b6db5d9587c0f001a64e7e6bee5700d7f5f70dfd422"
+    },
+    {
+      "path": "base_rev_0002_inspect_inside_bottom_ortho.png",
+      "bytes": 17523,
+      "sha256": "9c6716e55b99f29096d41f88a635cbbdcc46d5ccfc1d6428ec0ab12ead9eeb34"
+    },
+    {
+      "path": "base_rev_0002_iso_back_left.png",
+      "bytes": 37019,
+      "sha256": "a49fd4c86b2e654f2e19bfe2eeaf3c81d958e573130d5b1a1723efac3bdf420d"
+    },
+    {
+      "path": "base_rev_0002_iso_back_right.png",
+      "bytes": 36453,
+      "sha256": "e6865755380adaf9610eca207648653ecaafce79b744ae7a38859cdd82ff7cee"
+    },
+    {
+      "path": "base_rev_0002_iso_bottom_back_left.png",
+      "bytes": 25521,
+      "sha256": "1d94807916fb0b54a90115bb7b23fec4831a4eccc043332daafbd2b7c66e6374"
+    },
+    {
+      "path": "base_rev_0002_iso_bottom_back_right.png",
+      "bytes": 26544,
+      "sha256": "8557477de5ef73aaaa9f110f63b5b3e9db87cf4810812ffbddfc208338c963ae"
+    },
+    {
+      "path": "base_rev_0002_iso_bottom_front_left.png",
+      "bytes": 26323,
+      "sha256": "95ec9cac7a5004dee2809f42c728dee2f2074cf98fb4eb6aec79b538029c0e18"
+    },
+    {
+      "path": "base_rev_0002_iso_bottom_front_right.png",
+      "bytes": 25900,
+      "sha256": "d9a4b41a2113f77fe77a01683bca269e84be1a1f518a081d8a4502a59384ce00"
+    },
+    {
+      "path": "base_rev_0002_iso_front_left.png",
+      "bytes": 31576,
+      "sha256": "3a3d56ec01b6f7bcd031a635b98299fed43ebf529bb2fa2661c2e956266cbf91"
+    },
+    {
+      "path": "base_rev_0002_iso_front_right.png",
+      "bytes": 35202,
+      "sha256": "c862d0ac26bf40ed16f51a8680ef083350d71a9ae7d37826d912af1c0606189f"
+    },
+    {
+      "path": "base_rev_0002_ortho_back.png",
+      "bytes": 17145,
+      "sha256": "c397becccb73ef22e10879f9057553f9c4b0cdd3a90154042e90f4ad9242f1e6"
+    },
+    {
+      "path": "base_rev_0002_ortho_bottom.png",
+      "bytes": 17523,
+      "sha256": "9c6716e55b99f29096d41f88a635cbbdcc46d5ccfc1d6428ec0ab12ead9eeb34"
+    },
+    {
+      "path": "base_rev_0002_ortho_front.png",
+      "bytes": 17145,
+      "sha256": "c397becccb73ef22e10879f9057553f9c4b0cdd3a90154042e90f4ad9242f1e6"
+    },
+    {
+      "path": "base_rev_0002_ortho_left.png",
+      "bytes": 17148,
+      "sha256": "6128346bf828829ed4754c75223b850959dcd1e00f08d7eb904c3fbddbea0f6a"
+    },
+    {
+      "path": "base_rev_0002_ortho_right.png",
+      "bytes": 17215,
+      "sha256": "9f6cd18fc1dead4ac2f7a36c7628c7e7b0d2f919a4b9f0fb7b25b71d0ca46411"
+    },
+    {
+      "path": "base_rev_0002_ortho_top.png",
+      "bytes": 17887,
+      "sha256": "eaf2011b2ecb4b4624e76bc8b6c370e339fdb18fe05b201345ca4f1fb44c0801"
+    },
+    {
+      "path": "button_cap_rev_0002.png",
+      "bytes": 23102,
+      "sha256": "066fd8248e7dd01f97b32c5310dfc096cfc384df9e4f8d040d4ee93f72e1a077"
+    },
+    {
+      "path": "button_cap_rev_0002.stl",
+      "bytes": 96642,
+      "sha256": "2d39a70acc323b46cddeacf1e2687065a6aec47b48b384531864958b14228475"
+    },
+    {
+      "path": "button_cap_rev_0002_inspect_inside_bottom_iso.png",
+      "bytes": 25362,
+      "sha256": "0f639bac57cb115a66667e3a95fe1cc3f1ca8461d97de43daf1c5a5fca89de4b"
+    },
+    {
+      "path": "button_cap_rev_0002_inspect_inside_bottom_ortho.png",
+      "bytes": 19158,
+      "sha256": "43c163023ddb9538c89b03be72511e8d0f653ec49d98548c5bca68067d21d624"
+    },
+    {
+      "path": "button_cap_rev_0002_iso_back_left.png",
+      "bytes": 23102,
+      "sha256": "066fd8248e7dd01f97b32c5310dfc096cfc384df9e4f8d040d4ee93f72e1a077"
+    },
+    {
+      "path": "button_cap_rev_0002_iso_back_right.png",
+      "bytes": 23055,
+      "sha256": "fb5149c8344aaab2d4455fea222f2b59f1a5f8675e07d7354de19af55163a2a5"
+    },
+    {
+      "path": "button_cap_rev_0002_iso_bottom_back_left.png",
+      "bytes": 24291,
+      "sha256": "f66f270f48310ff8b2992cf9815d10a390285c04d72aa0f2899036c1ea3bdf09"
+    },
+    {
+      "path": "button_cap_rev_0002_iso_bottom_back_right.png",
+      "bytes": 24241,
+      "sha256": "5320972ccb16bfbbf2fc0520e83ae25cdd8455860b55e1fcbdf8d2353fc26d90"
+    },
+    {
+      "path": "button_cap_rev_0002_iso_bottom_front_left.png",
+      "bytes": 24241,
+      "sha256": "5320972ccb16bfbbf2fc0520e83ae25cdd8455860b55e1fcbdf8d2353fc26d90"
+    },
+    {
+      "path": "button_cap_rev_0002_iso_bottom_front_right.png",
+      "bytes": 24291,
+      "sha256": "f66f270f48310ff8b2992cf9815d10a390285c04d72aa0f2899036c1ea3bdf09"
+    },
+    {
+      "path": "button_cap_rev_0002_iso_front_left.png",
+      "bytes": 23055,
+      "sha256": "fb5149c8344aaab2d4455fea222f2b59f1a5f8675e07d7354de19af55163a2a5"
+    },
+    {
+      "path": "button_cap_rev_0002_iso_front_right.png",
+      "bytes": 23102,
+      "sha256": "066fd8248e7dd01f97b32c5310dfc096cfc384df9e4f8d040d4ee93f72e1a077"
+    },
+    {
+      "path": "button_cap_rev_0002_ortho_back.png",
+      "bytes": 17014,
+      "sha256": "7358c849c950c1c67d59e7ba6e4280518a32561ff1ef9223a42b96d85f1410e5"
+    },
+    {
+      "path": "button_cap_rev_0002_ortho_bottom.png",
+      "bytes": 19158,
+      "sha256": "43c163023ddb9538c89b03be72511e8d0f653ec49d98548c5bca68067d21d624"
+    },
+    {
+      "path": "button_cap_rev_0002_ortho_front.png",
+      "bytes": 17014,
+      "sha256": "7358c849c950c1c67d59e7ba6e4280518a32561ff1ef9223a42b96d85f1410e5"
+    },
+    {
+      "path": "button_cap_rev_0002_ortho_left.png",
+      "bytes": 17014,
+      "sha256": "7358c849c950c1c67d59e7ba6e4280518a32561ff1ef9223a42b96d85f1410e5"
+    },
+    {
+      "path": "button_cap_rev_0002_ortho_right.png",
+      "bytes": 17014,
+      "sha256": "7358c849c950c1c67d59e7ba6e4280518a32561ff1ef9223a42b96d85f1410e5"
+    },
+    {
+      "path": "button_cap_rev_0002_ortho_top.png",
+      "bytes": 19158,
+      "sha256": "43c163023ddb9538c89b03be72511e8d0f653ec49d98548c5bca68067d21d624"
+    },
+    {
+      "path": "buttons_rev_0002.png",
+      "bytes": 40082,
+      "sha256": "9408282480d6c2cdebf2afe9c7c279172df8b34fe42cb25e2bcfedd615f298d8"
+    },
+    {
+      "path": "buttons_rev_0002.stl",
+      "bytes": 106765,
+      "sha256": "81378e307bf5b5f1aa2a368918d8ff7bba7b9ba051496649099ce64c4a77b100"
+    },
+    {
+      "path": "buttons_rev_0002_inspect_inside_bottom_iso.png",
+      "bytes": 35796,
+      "sha256": "4dec472c3b53a9dae1ce5545577d732a362dfa52543977467080cbb302ea57d5"
+    },
+    {
+      "path": "buttons_rev_0002_inspect_inside_bottom_ortho.png",
+      "bytes": 17522,
+      "sha256": "b2e25799e5f4da9cb723b6703239c0f6ba1b8fedcd4f968acea1c7a9f1695a29"
+    },
+    {
+      "path": "buttons_rev_0002_iso_back_left.png",
+      "bytes": 40873,
+      "sha256": "dcbe8c4253e62f2a505ec4d37647f38c22a31e5dfe6f5996d086ec51c8cf5f1e"
+    },
+    {
+      "path": "buttons_rev_0002_iso_back_right.png",
+      "bytes": 39534,
+      "sha256": "38dbac4fef84c98df97aba003608f44c3c2cc417b5ce36d93e7e9d10f62f552a"
+    },
+    {
+      "path": "buttons_rev_0002_iso_bottom_back_left.png",
+      "bytes": 31186,
+      "sha256": "b81f44a7ae4597dfdf6474d1bbd17cd0839d991e8ce007a4b915e583c4c3ae2d"
+    },
+    {
+      "path": "buttons_rev_0002_iso_bottom_back_right.png",
+      "bytes": 33738,
+      "sha256": "6cda2cfab50b6e771e004134daf1aa1cfe35315a846e113694008b33b9930bf2"
+    },
+    {
+      "path": "buttons_rev_0002_iso_bottom_front_left.png",
+      "bytes": 33856,
+      "sha256": "8291a5d3fc48cd3f2b68a59b23bcd3ffb5abcc67b6fc0b4623b160548f569619"
+    },
+    {
+      "path": "buttons_rev_0002_iso_bottom_front_right.png",
+      "bytes": 32283,
+      "sha256": "1bfc85d8dd1ed68f7a5a8245e269810f7ca4ade41a0400e1e593f078927f3447"
+    },
+    {
+      "path": "buttons_rev_0002_iso_front_left.png",
+      "bytes": 39116,
+      "sha256": "e852288fa3c2575715a326828b8c1f0000165e4a9f5f88e497763c5f4ca858a8"
+    },
+    {
+      "path": "buttons_rev_0002_iso_front_right.png",
+      "bytes": 40082,
+      "sha256": "9408282480d6c2cdebf2afe9c7c279172df8b34fe42cb25e2bcfedd615f298d8"
+    },
+    {
+      "path": "buttons_rev_0002_ortho_back.png",
+      "bytes": 17404,
+      "sha256": "82dc919e784246d505e988ef2a40ba061ce964dbae81c9569832f0162fc5cd0c"
+    },
+    {
+      "path": "buttons_rev_0002_ortho_bottom.png",
+      "bytes": 17522,
+      "sha256": "b2e25799e5f4da9cb723b6703239c0f6ba1b8fedcd4f968acea1c7a9f1695a29"
+    },
+    {
+      "path": "buttons_rev_0002_ortho_front.png",
+      "bytes": 17404,
+      "sha256": "82dc919e784246d505e988ef2a40ba061ce964dbae81c9569832f0162fc5cd0c"
+    },
+    {
+      "path": "buttons_rev_0002_ortho_left.png",
+      "bytes": 17603,
+      "sha256": "281492bfcc6ee4635d19928baccf7a9038b606fd62326d738e95bc6356330979"
+    },
+    {
+      "path": "buttons_rev_0002_ortho_right.png",
+      "bytes": 17590,
+      "sha256": "ffddcd4102b65d942da6df1d5ff38452910f8798a1d6e3f9529515cefaa7c1a2"
+    },
+    {
+      "path": "buttons_rev_0002_ortho_top.png",
+      "bytes": 19741,
+      "sha256": "fde05466088c2ad5da9c5e95d977ca1b6405b8371d07bc08ad05c9107d3e11f1"
+    },
+    {
+      "path": "esp32_rev_0002.png",
+      "bytes": 31960,
+      "sha256": "6f2a067163ff8743270747d33e18fe52984ef17c4839511694d7be83451ec46a"
+    },
+    {
+      "path": "esp32_rev_0002.stl",
+      "bytes": 8971,
+      "sha256": "387d1645c8089a8941b237d17d5a527a5948247b11bfd00c633a4203ed4d67b3"
+    },
+    {
+      "path": "esp32_rev_0002_inspect_inside_bottom_iso.png",
+      "bytes": 26136,
+      "sha256": "cda596db47aa030952a17a80acaea5a6ef88c5e47b932c951889f13928f9dc0f"
+    },
+    {
+      "path": "esp32_rev_0002_inspect_inside_bottom_ortho.png",
+      "bytes": 17258,
+      "sha256": "5e007de39a4a8c11cdc323299f9b7477ab5b10f38a4f6237e4abc76894d7da7a"
+    },
+    {
+      "path": "esp32_rev_0002_iso_back_left.png",
+      "bytes": 32314,
+      "sha256": "492f27e7e0e9d9f16719bc0adb1b9a4513bece27cc585ec36760c15970ee29f7"
+    },
+    {
+      "path": "esp32_rev_0002_iso_back_right.png",
+      "bytes": 34688,
+      "sha256": "ad7b61ccbbb7dc1d6ffdba26dff8c12b2a2ddf5441613c106cebdd61a3ab4932"
+    },
+    {
+      "path": "esp32_rev_0002_iso_bottom_back_left.png",
+      "bytes": 28151,
+      "sha256": "b7cfd7112a3ed1bd1f5d4819bff8144ca4a43d0c65bbdcfc89ef060327bfee85"
+    },
+    {
+      "path": "esp32_rev_0002_iso_bottom_back_right.png",
+      "bytes": 28047,
+      "sha256": "8edb4cfd143e25c450dd63a28323f71a9cad025aa7e6351d98f8adb97fc40934"
+    },
+    {
+      "path": "esp32_rev_0002_iso_bottom_front_left.png",
+      "bytes": 26611,
+      "sha256": "1aca96f329afae9cdcfdea5b7af23cb1849df2b555eb54255a5240d87d2787ef"
+    },
+    {
+      "path": "esp32_rev_0002_iso_bottom_front_right.png",
+      "bytes": 25980,
+      "sha256": "931554e7153c0a4969d217be16f29bec6c4dc634b974e838eedc73a20d67f467"
+    },
+    {
+      "path": "esp32_rev_0002_iso_front_left.png",
+      "bytes": 29880,
+      "sha256": "344d7396c6eff7c2aa2800ef4ad9d3132632ad0f54d41c7026ceccc371b7d8b6"
+    },
+    {
+      "path": "esp32_rev_0002_iso_front_right.png",
+      "bytes": 31960,
+      "sha256": "6f2a067163ff8743270747d33e18fe52984ef17c4839511694d7be83451ec46a"
+    },
+    {
+      "path": "esp32_rev_0002_ortho_back.png",
+      "bytes": 17349,
+      "sha256": "52dbd9f15a362c0c23d53366a348207207b773b4fd758d448cab90f21781989e"
+    },
+    {
+      "path": "esp32_rev_0002_ortho_bottom.png",
+      "bytes": 17258,
+      "sha256": "5e007de39a4a8c11cdc323299f9b7477ab5b10f38a4f6237e4abc76894d7da7a"
+    },
+    {
+      "path": "esp32_rev_0002_ortho_front.png",
+      "bytes": 17245,
+      "sha256": "798ad71aeca442f7cfabb51a0eede37e16df0cfed6d43a1bc0e5606a075a3c77"
+    },
+    {
+      "path": "esp32_rev_0002_ortho_left.png",
+      "bytes": 16827,
+      "sha256": "87a6a36a9bd0a528f39c37bf37231aeffe1a2f74acc83d1358b011859157b229"
+    },
+    {
+      "path": "esp32_rev_0002_ortho_right.png",
+      "bytes": 16823,
+      "sha256": "1e8f5fb53c33f9da394ab4e571e7409d3adecdcbbc9bda2d9dae2b515adfb0fb"
+    },
+    {
+      "path": "esp32_rev_0002_ortho_top.png",
+      "bytes": 17532,
+      "sha256": "82bce330f5ac12ac39bbc0e40cf113ae0dc31e7d2d0b7103b9accd3fffad2c31"
+    },
+    {
+      "path": "lid_rev_0002.png",
+      "bytes": 28166,
+      "sha256": "dc7bcbc10ab4c916f436b33910996bfafa1ac3aa554aab09efea1b1ce42860c6"
+    },
+    {
+      "path": "lid_rev_0002.stl",
+      "bytes": 340401,
+      "sha256": "cebc79af54b2b735c7d362db8e8131a44cc8915b35412e87f6e62e2da57f2507"
+    },
+    {
+      "path": "lid_rev_0002_inspect_inside_bottom_iso.png",
+      "bytes": 28009,
+      "sha256": "cff30f603585d04810ad3c48b36dda0a932a018b8f351cf75225853238bbd707"
+    },
+    {
+      "path": "lid_rev_0002_inspect_inside_bottom_ortho.png",
+      "bytes": 18674,
+      "sha256": "d0d3f7ad9d8046f2035d52fc3b4e8ead9eff0155c2c532c9bed75fa10fde029e"
+    },
+    {
+      "path": "lid_rev_0002_iso_back_left.png",
+      "bytes": 28792,
+      "sha256": "034528a7f40f844b71c5de8d815067b0a0374c34b5ee1646d6bae67e2361b241"
+    },
+    {
+      "path": "lid_rev_0002_iso_back_right.png",
+      "bytes": 28221,
+      "sha256": "887334931d940c2f6fe57001c66faac6a4c057564b46d2c98eb7bd1c1f412579"
+    },
+    {
+      "path": "lid_rev_0002_iso_bottom_back_left.png",
+      "bytes": 27778,
+      "sha256": "4c2f67084c54ef9d34a0f7466a0a581c036fe0d9905161b8a937e6ca4bb031c8"
+    },
+    {
+      "path": "lid_rev_0002_iso_bottom_back_right.png",
+      "bytes": 28762,
+      "sha256": "354130d4ad203ee38ae35992e21496cd1f7aac8e21fefe4432199306b102e3b7"
+    },
+    {
+      "path": "lid_rev_0002_iso_bottom_front_left.png",
+      "bytes": 29092,
+      "sha256": "43032d016745098095628934d120a474ba1e0bc1be469d193888eb7dd2d0291e"
+    },
+    {
+      "path": "lid_rev_0002_iso_bottom_front_right.png",
+      "bytes": 27582,
+      "sha256": "ddcfb1d83cd5afe8f93157c9c95ca12be5586dc39115ef09e50cd2b98c6651cd"
+    },
+    {
+      "path": "lid_rev_0002_iso_front_left.png",
+      "bytes": 27420,
+      "sha256": "c4c93a2410385d9ffd23dd1e715d1be5f7586b2aec7f5976302a390fd8a741e0"
+    },
+    {
+      "path": "lid_rev_0002_iso_front_right.png",
+      "bytes": 28166,
+      "sha256": "dc7bcbc10ab4c916f436b33910996bfafa1ac3aa554aab09efea1b1ce42860c6"
+    },
+    {
+      "path": "lid_rev_0002_ortho_back.png",
+      "bytes": 17090,
+      "sha256": "6ad8ebf27a6576ef4a34b230e524f8d77384bdc080f0b8f76788c68c33592ffa"
+    },
+    {
+      "path": "lid_rev_0002_ortho_bottom.png",
+      "bytes": 18674,
+      "sha256": "d0d3f7ad9d8046f2035d52fc3b4e8ead9eff0155c2c532c9bed75fa10fde029e"
+    },
+    {
+      "path": "lid_rev_0002_ortho_front.png",
+      "bytes": 16551,
+      "sha256": "60d8db6c0e0a7f7f9c5eb825d0d46c4c60894f262b5e6da4106eb127478d4ee1"
+    },
+    {
+      "path": "lid_rev_0002_ortho_left.png",
+      "bytes": 16307,
+      "sha256": "6d0c706567278c069525db09110efd27c1fe648a036c349f8b74b76763e6371d"
+    },
+    {
+      "path": "lid_rev_0002_ortho_right.png",
+      "bytes": 16312,
+      "sha256": "beb14d624cabba577f58760a6009ed9aa9287c525801a69a0aa18b44dcbab6a6"
+    },
+    {
+      "path": "lid_rev_0002_ortho_top.png",
+      "bytes": 18848,
+      "sha256": "4f665a703bf865479e370bea31288014e03dc0fa6828a5568d55609d941edca1"
+    },
+    {
+      "path": "oled_rev_0002.png",
+      "bytes": 27816,
+      "sha256": "fa6ee1bd922613c69c7c92dc6234775e1c1de2ac7e9ab42b52f95bbc9fca8840"
+    },
+    {
+      "path": "oled_rev_0002.stl",
+      "bytes": 9019,
+      "sha256": "6ce4b1adb01c612cbf040eba686684ef0f53dd98a4d5196356964d9be6eaa683"
+    },
+    {
+      "path": "oled_rev_0002_inspect_inside_bottom_iso.png",
+      "bytes": 23795,
+      "sha256": "5df2799c183944d74f815b372a9b57587d541f9a1b702a5ad0ce7bd828ed0071"
+    },
+    {
+      "path": "oled_rev_0002_inspect_inside_bottom_ortho.png",
+      "bytes": 16892,
+      "sha256": "ea3b4211871ecb14baf325d3f789a132e43631ec80791fad04fdd17f0b630638"
+    },
+    {
+      "path": "oled_rev_0002_iso_back_left.png",
+      "bytes": 33916,
+      "sha256": "9841b91d9d70f123c9ae75067367a24a063e762c37509b4b9b8bebca154c5f2b"
+    },
+    {
+      "path": "oled_rev_0002_iso_back_right.png",
+      "bytes": 30736,
+      "sha256": "8b773cbf1dd09c7b4d082bcaf94548d9b3d13e93955ff0df1a12a5bdba9d8aa8"
+    },
+    {
+      "path": "oled_rev_0002_iso_bottom_back_left.png",
+      "bytes": 34398,
+      "sha256": "148a60dd9f2ff7d3975137ee6a03807c45bbf51573949dbc120d77358cbd76e8"
+    },
+    {
+      "path": "oled_rev_0002_iso_bottom_back_right.png",
+      "bytes": 42701,
+      "sha256": "55407fa87471ddcf12f3bae4420c8c60665eeb4ce6ef0394027bc445c9d3465f"
+    },
+    {
+      "path": "oled_rev_0002_iso_bottom_front_left.png",
+      "bytes": 27280,
+      "sha256": "866a0d2048990ae0e88f1295ac8295965ce274983e95d30a1660fdf72dcc5460"
+    },
+    {
+      "path": "oled_rev_0002_iso_bottom_front_right.png",
+      "bytes": 24144,
+      "sha256": "fa8f11ab65edafbeca7236ad562a4dc25552bf35e180eb98b5ca66c63809aa48"
+    },
+    {
+      "path": "oled_rev_0002_iso_front_left.png",
+      "bytes": 25249,
+      "sha256": "7f3ead3ac786a0983bf8082f79a9bfb15704d2ef200bc0f076d9ce0e4c905557"
+    },
+    {
+      "path": "oled_rev_0002_iso_front_right.png",
+      "bytes": 27816,
+      "sha256": "fa6ee1bd922613c69c7c92dc6234775e1c1de2ac7e9ab42b52f95bbc9fca8840"
+    },
+    {
+      "path": "oled_rev_0002_ortho_back.png",
+      "bytes": 17620,
+      "sha256": "5815c134e95dd77bb27a07cddeabe1c5584763cce71671d19e09206fa3210296"
+    },
+    {
+      "path": "oled_rev_0002_ortho_bottom.png",
+      "bytes": 16892,
+      "sha256": "ea3b4211871ecb14baf325d3f789a132e43631ec80791fad04fdd17f0b630638"
+    },
+    {
+      "path": "oled_rev_0002_ortho_front.png",
+      "bytes": 17484,
+      "sha256": "aa887f3459e74d77a6e96a4f6deb2f19c2c9f993504af1c25fdeb78d6500a81c"
+    },
+    {
+      "path": "oled_rev_0002_ortho_left.png",
+      "bytes": 17533,
+      "sha256": "8e034c2e5777cf432b96388a9e106514d25521bc309f6994abf3f996b68b7942"
+    },
+    {
+      "path": "oled_rev_0002_ortho_right.png",
+      "bytes": 17555,
+      "sha256": "ebac7e3b6b6d1fc02c5e242495223ffcc1f2a587a58327041e6ada4cd3004a9d"
+    },
+    {
+      "path": "oled_rev_0002_ortho_top.png",
+      "bytes": 17101,
+      "sha256": "10ce33ffa1575b58007d67a33bd3e69599a682865734af25c2393650e8f97fed"
+    },
+    {
+      "path": "sd_module_rev_0002.png",
+      "bytes": 26684,
+      "sha256": "9463834e298a8deabc49377d712586c274f87c5cad6d713e2024f3b943ae5a22"
+    },
+    {
+      "path": "sd_module_rev_0002.stl",
+      "bytes": 6282,
+      "sha256": "fe472eb9be8fb8e15c9453bf33671346c4c4eda0c7f49d5f66f71d179cc12811"
+    },
+    {
+      "path": "sd_module_rev_0002_inspect_inside_bottom_iso.png",
+      "bytes": 24873,
+      "sha256": "01bbef41df30c3cf65b132e7b497da7538f8e5ad6345fb449da211fac791959e"
+    },
+    {
+      "path": "sd_module_rev_0002_inspect_inside_bottom_ortho.png",
+      "bytes": 17187,
+      "sha256": "5c98a6022512d4dc2389773a47d6310c6168b7c0c0cd6ef0096c24c3d54ae625"
+    },
+    {
+      "path": "sd_module_rev_0002_iso_back_left.png",
+      "bytes": 26544,
+      "sha256": "d237d2bdd5739d04f2ba829d3bc95909aa292284e89567bf354cdc73d7b21875"
+    },
+    {
+      "path": "sd_module_rev_0002_iso_back_right.png",
+      "bytes": 26534,
+      "sha256": "28a3c27381c8a91e7d89cb3a2cf3a6323125eafc976273d58a2dc9610480c6a6"
+    },
+    {
+      "path": "sd_module_rev_0002_iso_bottom_back_left.png",
+      "bytes": 23586,
+      "sha256": "889d70baed69462eca62afba007fa3efcf665adba60e32c8005616471327d61d"
+    },
+    {
+      "path": "sd_module_rev_0002_iso_bottom_back_right.png",
+      "bytes": 24365,
+      "sha256": "57ae397eeb30a247d6a1259bb917af85d3259aa3cbf42e748ce371d05007245c"
+    },
+    {
+      "path": "sd_module_rev_0002_iso_bottom_front_left.png",
+      "bytes": 24331,
+      "sha256": "27ef83191bdbe8097847191d1519f362efd1f656105b689d264097d3506de7c2"
+    },
+    {
+      "path": "sd_module_rev_0002_iso_bottom_front_right.png",
+      "bytes": 23774,
+      "sha256": "348de9f207dbb9b9e029326e64f5b6a2a4ea06e886bbcc94ecfd67126f2a8e25"
+    },
+    {
+      "path": "sd_module_rev_0002_iso_front_left.png",
+      "bytes": 25573,
+      "sha256": "12966acca84d9a6e0be7c21211fff98e645c47441aa63159260b77fcc91500e2"
+    },
+    {
+      "path": "sd_module_rev_0002_iso_front_right.png",
+      "bytes": 26684,
+      "sha256": "9463834e298a8deabc49377d712586c274f87c5cad6d713e2024f3b943ae5a22"
+    },
+    {
+      "path": "sd_module_rev_0002_ortho_back.png",
+      "bytes": 17118,
+      "sha256": "d00fb416033e15524ae7938310364d00e4fa7b3adf6873de735828a0301e4465"
+    },
+    {
+      "path": "sd_module_rev_0002_ortho_bottom.png",
+      "bytes": 17187,
+      "sha256": "5c98a6022512d4dc2389773a47d6310c6168b7c0c0cd6ef0096c24c3d54ae625"
+    },
+    {
+      "path": "sd_module_rev_0002_ortho_front.png",
+      "bytes": 16704,
+      "sha256": "e8403e1c3da66c235845cb79e7176b2e8e42b1b4e4a71763e0dd07856141424b"
+    },
+    {
+      "path": "sd_module_rev_0002_ortho_left.png",
+      "bytes": 16972,
+      "sha256": "a85ae0c41bf60a7da3a83d7f680bce1f7b8f8c16dfe1bbc4e592c6b7ba803139"
+    },
+    {
+      "path": "sd_module_rev_0002_ortho_right.png",
+      "bytes": 16974,
+      "sha256": "24aa4502643a92a93a2b926eb1e44861127ba4ecccbf8582bd0730a192fda467"
+    },
+    {
+      "path": "sd_module_rev_0002_ortho_top.png",
+      "bytes": 17207,
+      "sha256": "547d37e7ef7c7e9fb0d990f2deac11cad70fbcbc8504eb3450bdb4fd51269e5e"
+    }
+  ]
+}

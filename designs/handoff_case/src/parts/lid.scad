@@ -43,10 +43,17 @@ module lid() {
     assert(anti_lift_blade_w <= esp32_header_pin_inset,
         str("anti-lift blade width ", anti_lift_blade_w,
             " crosses the header pin inset ", esp32_header_pin_inset));
-    blade_pin_clear_right = anti_lift_blade_x0()
+    // Pinned right blade still lands on the (narrower) board edge strip
+    // and still clears the header pins.
+    blade_edge_overlap = anti_lift_blade1_x1 - 0.2
+        - (esp32_pcb_x1() - 0.2);
+    assert(anti_lift_blade1_x0 <= esp32_pcb_x1() - 0.2,
+        "pinned right blade misses the board edge strip");
+    blade_pin_clear_right = anti_lift_blade1_x0
         - (esp32_pcb_x1() - esp32_header_pin_inset);
-    assert(blade_pin_clear_right >= -boolean_epsilon,
-        "right anti-lift blade fouls the header pins");
+    assert(blade_pin_clear_right >= 0.5,
+        str("pinned right blade to header pins ", blade_pin_clear_right,
+            " < 0.5"));
     // Vent ligaments: between columns/rows and to every bore column.
     vent_col_gap = vent_x_starts[1] - (vent_x_starts[0] + vent_w);
     assert(vent_col_gap >= minimum_internal_edge_width,
@@ -70,9 +77,15 @@ module lid() {
 
             // ---- Anti-lift blades (hang from the lid underside onto the
             // board's long-edge top strips; 3.0 embedded in the lid) ----
-            anti_lift_blade(anti_lift_blade_x0(), anti_lift_blade_y0,
+            // rev_0002: the RIGHT blade X is PINNED at the rev_0001
+            // position so the lid part stays geometry-identical (hard
+            // constraint). The measured board is 0.15 narrower, so the
+            // pinned blade overlaps the new edge strip by 1.45 of its
+            // 1.6 width and still clears the header pins by >= 0.85
+            // (asserted). The left blade is unchanged either way.
+            anti_lift_blade(anti_lift_blade1_x0, anti_lift_blade_y0,
                             board_top_z(),
-                            anti_lift_blade_x1() - anti_lift_blade_x0(),
+                            anti_lift_blade1_x1 - anti_lift_blade1_x0,
                             anti_lift_blade_y1 - anti_lift_blade_y0,
                             parting_z() + 3.0 - board_top_z());
             anti_lift_blade(anti_lift_blade2_x0(), anti_lift_blade_y0,
